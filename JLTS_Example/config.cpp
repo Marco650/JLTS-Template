@@ -2,6 +2,10 @@ class CfgPatches
 {
 	class JLTS_Example //Name of your Folder/PBO, for the units and weapons area put your unique classnames in as a link
 	{
+		name = "JLTS Example"; // Name of your mod
+		url = ""; // Website link
+		author = "Example"; // Author of the mod
+		authors[] = {"Example1", "Example2"}; // Authors of the mod
 		units[]=
 		{
 			"JLTS_Example_Backpack", 
@@ -15,8 +19,15 @@ class CfgPatches
 			"JLTS_Example_Vest",
 			"JLTS_Example_Uniform",
 		};
+		version = "1.0"; // Version of the mod
+		versionStr = "1.0.0.0"
+		versionAr[] = { 1,0,0,0 }; 
+		requiredVersion = 1.0; // Required version of the game to play the mod
+		requiredAddons[] = 
+		{
+			"JLTS_characters_CloneArmor"
+		}; // handles in game load order
 	};
-	author="Example";
 };
 class CfgFactionClasses //Section for factions in Zeus/Eden
 {
@@ -40,7 +51,10 @@ class CfgWeapons // This area is where you put weapons, nvg, helmets, vest and u
 	class JLTS_CloneNVG;
 	class JLTS_CloneHelmetP2;
 	class JLTS_CloneVestHolster;
-	class JLTS_CloneArmor;
+	class JLTS_CloneArmor
+	{
+		class ItemInfo; // External class reference
+	};
 
 
 	class JLTS_Example_NVG: JLTS_CloneNVG // Code example of a NVG 
@@ -74,7 +88,7 @@ class CfgWeapons // This area is where you put weapons, nvg, helmets, vest and u
 	{
 	    author="Example";
 		displayName="Clone Trooper Armor (Example)";
-		class ItemInfo: UniformItem
+		class ItemInfo: ItemInfo
 		{
 			uniformType = "Neopren"; // This makes the uniform count as a wetsuit
 			uniformClass="JLTS_Example_Unit"; // This is the same classname as your Unit
